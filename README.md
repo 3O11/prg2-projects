@@ -1,10 +1,10 @@
 # prg2-projects
-Projects written for the Programming 2 course at MFF Cuni.
+Projects written for the Programming 2 course at MFF Cuni led by.
 In some of these projects, parts of the code are not my own,
 they were provided to me by my teacher, those projects will specifically mention that
 not all of the code is my own.
 Also, in most of these projects, the class design or at least the very basic outline was
-not thought up by me, it was provided by my teacher, Mr. Gemrot.
+not thought up by me, it was provided by my teacher.
 
 # Projects
 
