@@ -9,3 +9,7 @@ GameBook-1/GameBook/obj
 # Ignore snake build
 Snake/Snake/bin
 Snake/Snake/obj
+
+# Ignore Calculator build
+Calculator/Calculator/bin
+Calculator/Calculator/obj
