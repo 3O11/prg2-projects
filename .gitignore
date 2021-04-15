@@ -1,0 +1,6 @@
+# Ignore visual studio directory
+*/.vs/
+
+# Ignore snake build
+Snake/Snake/bin
+Snake/Snake/obj
