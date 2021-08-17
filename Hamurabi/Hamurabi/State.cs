@@ -31,6 +31,10 @@ namespace SimulationGame
         public int GetInt(string name, int defaultValue = 0)
         {
             if (!data.ContainsKey(name)) return defaultValue;
+
+            // I've added this fix so that the game doesn't crash at the end
+            if (data[name] is double) return (int)(double)data[name];
+            
             return (int)data[name];
         }
 
