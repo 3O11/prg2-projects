@@ -1,0 +1,7 @@
+D:\code\projects\prg2-gemrot\homework-projects\prg2-projects\Hamurabi\Hamurabi\bin\Debug\Hamurabi.exe.config
+D:\code\projects\prg2-gemrot\homework-projects\prg2-projects\Hamurabi\Hamurabi\bin\Debug\Hamurabi.exe
+D:\code\projects\prg2-gemrot\homework-projects\prg2-projects\Hamurabi\Hamurabi\bin\Debug\Hamurabi.pdb
+D:\code\projects\prg2-gemrot\homework-projects\prg2-projects\Hamurabi\Hamurabi\obj\Debug\Hamurabi.csprojAssemblyReference.cache
+D:\code\projects\prg2-gemrot\homework-projects\prg2-projects\Hamurabi\Hamurabi\obj\Debug\Hamurabi.csproj.CoreCompileInputs.cache
+D:\code\projects\prg2-gemrot\homework-projects\prg2-projects\Hamurabi\Hamurabi\obj\Debug\Hamurabi.exe
+D:\code\projects\prg2-gemrot\homework-projects\prg2-projects\Hamurabi\Hamurabi\obj\Debug\Hamurabi.pdb
