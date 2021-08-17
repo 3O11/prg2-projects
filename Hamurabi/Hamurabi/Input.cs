@@ -39,7 +39,11 @@ namespace SimulationGame
                 Console.Write($"(Min: {minValue} .. Max: {maxValue}): ");
                 string input = Console.ReadLine();
                 int nextValue;
-                int.TryParse(input, out nextValue);
+                
+                if (!int.TryParse(input, out nextValue)) {
+                    Console.WriteLine("Value is not an integer.");
+                    continue;
+                }
 
                 if (minValue <= nextValue && nextValue <= maxValue) {
                     state.Set(variable, nextValue);

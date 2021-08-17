@@ -13,3 +13,7 @@ Snake/Snake/obj
 # Ignore Calculator build
 Calculator/Calculator/bin
 Calculator/Calculator/obj
+
+# Ignore Hamurabi build
+Hamurabi/Hamurabi/bin
+Hamurabi/Hamurabi/obj
