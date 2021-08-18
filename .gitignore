@@ -2,9 +2,11 @@
 */.vs/
 
 
-# Ignore gamebook build
+# Ignore gamebook builds
 GameBook-1/GameBook/bin
 GameBook-1/GameBook/obj
+GameBook-2/GameBook/bin
+GameBook-2/GameBook/obj
 
 # Ignore snake build
 Snake/Snake/bin
