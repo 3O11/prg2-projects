@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake {
     interface IMapTile {
-        ILetter GetLetter() {
-            // TODO: Implement
-
-            return new ColoredLetter();
-        }
-
-        void Chewed(Worm worm) {
-            // TODO: Implement
-        }
+        ILetter GetLetter();
+        void Chewed(Worm worm);
     }
 }

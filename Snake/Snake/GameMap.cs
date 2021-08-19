@@ -6,24 +6,33 @@ using System.Threading.Tasks;
 
 namespace Snake {
     class GameMap {
-        void Render() {
+        public GameMap() {
+            _map = new Map(30, 30, MapTile.Empty);
+            _worm = new Worm();
+        }
+
+        public void Render() {
+            for (int i = 0; i < _map.Height; ++i) {
+                for (int j = 0; j < _map.Width; ++j) {
+                    _map.GetTile(j, i).GetLetter().Write();
+                }
+                Console.Write("\n");
+            }
+        }
+
+        public Map GetMap() {
+            return _map;
+        }
+
+        public void PlaceAtRandomFree(IMapTile tile) {
             // TODO: Implement
         }
 
-        GameMap GetMap() {
-            // TODO: Implement
-
-            return new GameMap();
+        public Worm GetWorm() {
+            return _worm;
         }
 
-        void PlaceAtRandomFree(IMapTile tile) {
-            // TODO: Implement
-        }
-
-        Worm GetWorm() {
-            // TODO: Implement
-
-            return new Worm();
-        }
+        Map _map;
+        Worm _worm;
     }
 }

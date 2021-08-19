@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake {
     class MapTileEdible : MapTileBase {
-        void Chewed(Worm worm) {
+        public override void Chewed(Worm worm) {
             // TODO: Implement
         }
     }

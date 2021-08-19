@@ -6,20 +6,22 @@ using System.Threading.Tasks;
 
 namespace Snake {
     class TimeDelta {
-        void Update() {
-            // TODO: Implement
+        public TimeDelta() {
+            _lastUpdateTime = CurrentTime();
         }
 
-        long CurrentTime() {
-            // TODO: Implement
-
-            return 0;
+        public void Update() {
+            _lastUpdateTime = CurrentTime();
         }
 
-        long DeltaTime() {
-            // TODO: Implement
-
-            return 0;
+        public long CurrentTime() {
+            return DateTimeOffset.Now.ToUnixTimeMilliseconds();
         }
+
+        public long DeltaTime() {
+            return CurrentTime() - _lastUpdateTime;
+        }
+
+        long _lastUpdateTime;
     }
 }

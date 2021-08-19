@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake {
     class Direction {
-        // TODO: Create singleton instances
-
-        Direction(int dx, int dy) {
+        public Direction(int dx, int dy) {
             this.dx = dx;
             this.dy = dy;
         }
@@ -21,6 +19,15 @@ namespace Snake {
             return dy;
         }
 
+        static Direction Up { get => _up; }
+        static Direction Down { get => _down; }
+        static Direction Left { get => _left; }
+        static Direction Right { get => _right; }
+
         int dx, dy;
+        static Direction _up = new Direction(0, -1);
+        static Direction _down = new Direction(0, 1);
+        static Direction _left = new Direction(-1, 0);
+        static Direction _right = new Direction(1, 0);
     }
 }

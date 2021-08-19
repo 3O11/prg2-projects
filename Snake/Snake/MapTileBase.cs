@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Snake {
     abstract class MapTileBase : IMapTile {
-        ILetter GetLetter() {
-            // TODO: Implement
-
-            return new ColoredLetter();
+        public virtual ILetter GetLetter() {
+            return _letter;
         }
+        public abstract void Chewed(Worm worm);
+
+        ILetter _letter;
     }
 }

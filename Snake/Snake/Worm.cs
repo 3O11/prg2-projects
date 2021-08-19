@@ -52,7 +52,7 @@ namespace Snake {
             return new KeyboardController();
         }
 
-        public void SetController() {
+        public void SetController(IPlayerController c) {
             // TODO: Implement
         }
     }

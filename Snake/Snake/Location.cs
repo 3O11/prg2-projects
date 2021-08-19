@@ -11,9 +11,7 @@ namespace Snake {
             this.y = y;
         }
 
-        int GetX() { return x; }
-        int GetY() { return y; }
-
-        int x, y;
+        public int x { get; private set; }
+        public int y { get; private set; }
     }
 }
