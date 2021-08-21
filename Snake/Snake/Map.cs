@@ -34,17 +34,31 @@ namespace Snake {
                 for (int j = 0; j < Height; ++j) {
                     if (_mapData[i, j].GetType() == MapTile.WormBody.GetType() || _mapData[i,j].GetType() == MapTile.WormHead.GetType())
                         _mapData[i, j] = MapTile.Empty;
-                    
                 }
             }
+        }
+
+        public Location WrapAround(Location loc) {
+            int x = loc.GetX();
+            int y = loc.GetY();
+
+            while (x < 0) x += Width;
+            while (x > Width - 1) x -= Width;
+
+            while (y < 0) y += Height;
+            while (y > Height - 1) y -= Height;
+
+            return new Location(x, y);
         }
 
         public void DrawWorm(Worm worm) {
             var segments = worm.GetSegments();
             foreach (var segment in segments) {
-                _mapData[segment.GetX(), segment.GetY()] = MapTile.WormBody;
+                var mapLoc = WrapAround(segment);
+                _mapData[mapLoc.GetX(), mapLoc.GetY()] = MapTile.WormBody;
             }
-            _mapData[segments.First().GetX(), segments.First().GetY()] = MapTile.WormHead;
+            var headMapLoc = WrapAround(segments.First());
+            _mapData[headMapLoc.GetX(), headMapLoc.GetY()] = MapTile.WormHead;
         }
 
         public int Width { get; private set; }

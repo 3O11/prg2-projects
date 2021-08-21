@@ -7,8 +7,8 @@ namespace Snake {
                 Game game = new Game();
                 game.Run();
 
-                Console.Write("Start again? (Y/n)");
-
+                Console.Write("Start again? (Y/n): ");
+                if (Console.ReadKey().Key != ConsoleKey.Y) break;
             }
             
         }

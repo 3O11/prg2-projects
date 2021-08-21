@@ -18,7 +18,7 @@ namespace Snake {
             TimeDelta time = new TimeDelta();
 
             while (!_shouldExit) {
-                if (time.DeltaTime() >= (500 - _gameMap.GetWorm().GetGrowCount())) {
+                if (time.DeltaTime() >= (200 - _gameMap.GetWorm().GetGrowCount())) {
                     _controller.Update();
                     Update();
                     time.Update();
@@ -34,8 +34,8 @@ namespace Snake {
             var map = _gameMap.GetMap();
 
             worm.Move();
-            Location wormHeadLoc = worm.GetHeadLocation();
-            map.GetTile(Math.Abs(wormHeadLoc.GetX() % map.Width), Math.Abs(wormHeadLoc.GetY() % map.Height)).Chewed(worm);
+            Location wormHeadLoc = map.WrapAround(worm.GetHeadLocation());
+            map.GetTile(wormHeadLoc.GetX(), wormHeadLoc.GetY()).Chewed(worm);
 
             if (worm.AteFood()) _gameMap.PlaceAtRandomFree(MapTile.Edible);
             if (worm.AteWine()) _gameMap.PlaceAtRandomFree(MapTile.Wine);

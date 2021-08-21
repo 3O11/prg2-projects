@@ -23,6 +23,14 @@ namespace Snake {
             return new Direction(-dx, -dy);
         }
 
+        public static bool operator==(Direction a, Direction b) {
+            return (a.dx == b.dx && a.dy == b.dy);
+        }
+
+        public static bool operator !=(Direction a, Direction b) {
+            return !(a == b);
+        }
+
         public static Direction Up { get => _up; }
         public static Direction Down { get => _down; }
         public static Direction Left { get => _left; }
