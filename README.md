@@ -1,8 +1,8 @@
 # prg2-projects
-Projects written for the Programming 2 course at MFF Cuni led by.
+Projects written for the Programming 2 course at MFF UK
+(Course link: https://gamedev.cuni.cz/study/courses-history/courses-2020-2021/labs-for-programming-2-summer-202021/).
 In some of these projects, parts of the code are not my own,
-they were provided to me by my teacher, those projects will specifically mention that
-not all of the code is my own.
+they were provided to me by my teacher.
 Also, in most of these projects, the class design or at least the very basic outline was
 not thought up by me, it was provided by my teacher.
 
@@ -26,7 +26,19 @@ Small extensible calculator written from a pre-made UML Class Diagram,
 which was extended by Store/Load Memory operators.
 It was also imported finished because it was written before this repository existed.
 
+### Hamurabi
+
+An economic simulation game ported over from BASIC.
+The point was to implement logic that made the simulator work as a
+simulator of simulation games.
+It is practical for these types of games.
+
+### GameBook-2
+
+This is an extension of the first GameBook program,
+in this assignment, the point was to make the gamebook "play itself".
+
 ### Snake
 
-Currently just a stub that is implemented from a pre-made UML Class Diagram.
-The actual implementation will follow.
+Snake game implemented from a UML class diagram, with a few modifications/extensions
+that I felt made sense.
