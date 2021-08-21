@@ -15,7 +15,7 @@ namespace Snake {
         public void Write() {
             Console.ForegroundColor = _foreground;
             Console.BackgroundColor = _background;
-            Console.WriteLine(_letter);
+            Console.Write(_letter);
             Console.ResetColor();
         }
 

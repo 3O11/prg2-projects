@@ -6,54 +6,92 @@ using System.Threading.Tasks;
 
 namespace Snake {
     class Worm {
+        public Worm() {
+            _isAlive = true;
+            _startLength = 2;
+            _snakeSegments = new LinkedList<Location>();
+            _snakeSegments.AddFirst(new Location(2, 2));
+            _heading = Direction.Right;
+        }
+
         public void Move() {
-            // TODO: Implement
+            Direction newDirection = _playerController.GetInput();
+            _heading = newDirection == null ? _heading : newDirection;
+
+            _snakeSegments.AddFirst(_snakeSegments.First().GetMoved(_heading));
+
+            while (_snakeSegments.Count > _growLength + _startLength) _snakeSegments.RemoveLast();
         }
 
         public void Grow(int i) {
-            // TODO: Implement
+            _growCount++;
+            _growLength += i;
+            _ateFood = true;
         }
 
         public void Die() {
-            // TODO: Implement
+            _isAlive = false;
         }
 
         public bool IsAlive() {
-            // TODO: Implement
-
-            return false;
+            return _isAlive;
         }
 
         public int GetGrowCount() {
-            // TODO: Implement
-
-            return 0;
+            return _growCount;
         }
 
         public Location GetHeadLocation() {
-            // TODO: Implement
-
-            return new Location(0, 0);
+            return _snakeSegments.First();
         }
 
         public Direction GetHeading() {
-            // TODO: Implement
-
-            return null;
+            return _heading;
         }
 
         public void SetHeading(Direction heading) {
-            // TODO: Implement
+            _heading = heading;
         }
 
         public IPlayerController GetController() {
-            // TODO: Implement
-
-            return new KeyboardController();
+            return _playerController;
         }
 
         public void SetController(IPlayerController c) {
-            // TODO: Implement
+            _playerController = c;
         }
+
+        public LinkedList<Location> GetSegments() {
+            return _snakeSegments;
+        }
+
+        public void SetAteWine() {
+            _ateWine = true;
+        }
+
+        public bool AteWine() {
+            bool ate = _ateWine;
+            _ateWine = false;
+            return ate;
+        }
+
+        public bool AteFood() {
+            bool ate = _ateFood;
+            _ateFood = false;
+            return ate;
+        }
+
+        bool _isAlive;
+        bool _ateWine;
+        bool _ateFood;
+
+        int _startLength;
+        int _growLength;
+        int _growCount;
+
+        Direction _heading;
+        LinkedList<Location> _snakeSegments;
+
+        IPlayerController _playerController;
     }
 }

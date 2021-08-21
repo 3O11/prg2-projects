@@ -11,6 +11,6 @@ namespace Snake {
         }
         public abstract void Chewed(Worm worm);
 
-        ILetter _letter;
+        protected ILetter _letter;
     }
 }

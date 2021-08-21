@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Snake {
-    class MapTileWormKiller : MapTileBase {
+    class MapTileWormHead : MapTileBase {
+        public MapTileWormHead() {
+            _letter = new ColoredLetter(' ', ConsoleColor.Blue, ConsoleColor.Blue);
+        }
+
         public override void Chewed(Worm worm) {
             worm.Die();
         }

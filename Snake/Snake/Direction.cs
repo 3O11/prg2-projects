@@ -19,10 +19,14 @@ namespace Snake {
             return dy;
         }
 
-        static Direction Up { get => _up; }
-        static Direction Down { get => _down; }
-        static Direction Left { get => _left; }
-        static Direction Right { get => _right; }
+        public Direction Reverse() {
+            return new Direction(-dx, -dy);
+        }
+
+        public static Direction Up { get => _up; }
+        public static Direction Down { get => _down; }
+        public static Direction Left { get => _left; }
+        public static Direction Right { get => _right; }
 
         int dx, dy;
         static Direction _up = new Direction(0, -1);

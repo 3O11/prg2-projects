@@ -11,7 +11,19 @@ namespace Snake {
             this.y = y;
         }
 
-        public int x { get; private set; }
-        public int y { get; private set; }
+        public int GetX() {
+            return x;
+        }
+
+        public int GetY() {
+            return y;
+        }
+
+        public Location GetMoved(Direction dir) {
+            return new Location(x + dir.dX(), y + dir.dY());
+        }
+
+        int x;
+        int y;
     }
 }

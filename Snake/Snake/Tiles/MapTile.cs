@@ -43,9 +43,31 @@ namespace Snake {
             }
         }
 
+        public static MapTileWormHead WormHead {
+            get {
+                if (_headTile == null) _headTile = new MapTileWormHead();
+                return _headTile;
+            }
+            private set {
+                _headTile = value;
+            }
+        }
+
+        public static MapTileWormBody WormBody {
+            get {
+                if (_bodyTile == null) _bodyTile = new MapTileWormBody();
+                return _bodyTile;
+            }
+            private set {
+                _bodyTile = value;
+            }
+        }
+
         static MapTileEmpty _emptyTile;
         static MapTileEdible _edibleTile;
         static MapTileWine _wineTile;
         static MapTileWormKiller _killerTile;
+        static MapTileWormHead _headTile;
+        static MapTileWormBody _bodyTile;
     }
 }

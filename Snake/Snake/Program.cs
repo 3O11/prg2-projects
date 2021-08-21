@@ -3,8 +3,14 @@
 namespace Snake {
     class Program {
         static void Main(string[] args) {
-            Game game = new Game();
-            game.Run();
+            while (true) {
+                Game game = new Game();
+                game.Run();
+
+                Console.Write("Start again? (Y/n)");
+
+            }
+            
         }
     }
 }
