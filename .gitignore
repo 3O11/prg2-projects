@@ -19,3 +19,7 @@ Calculator/Calculator/obj
 # Ignore Hamurabi build
 Hamurabi/Hamurabi/bin
 Hamurabi/Hamurabi/obj
+
+# Ignore ThemeHospital build
+ThemeHospital/ThemeHospital/bin
+ThemeHospital/ThemeHospital/obj

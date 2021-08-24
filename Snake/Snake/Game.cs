@@ -18,7 +18,7 @@ namespace Snake {
             TimeDelta time = new TimeDelta();
 
             while (!_shouldExit) {
-                if (time.DeltaTime() >= (200 - _gameMap.GetWorm().GetGrowCount())) {
+                if (time.DeltaTime() >= (150 - _gameMap.GetWorm().GetGrowCount())) {
                     _controller.Update();
                     Update();
                     time.Update();
