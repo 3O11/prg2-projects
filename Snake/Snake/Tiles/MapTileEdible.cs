@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace Snake {
     class MapTileEdible : MapTileBase {
-        public MapTileEdible() {
+        public MapTileEdible(int growCount) {
             _letter = new ColoredLetter(' ', ConsoleColor.Red, ConsoleColor.Red);
+            _growCount = growCount;
         }
 
         public override void Chewed(Worm worm) {
-            worm.Grow(2);
+            worm.Grow(_growCount);
         }
+
+        int _growCount;
     }
 }

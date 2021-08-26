@@ -17,7 +17,25 @@ namespace Snake {
         }
         public static MapTileEdible Edible {
             get {
-                if (_edibleTile == null) _edibleTile = new MapTileEdible();
+                if (_edibleTile == null) _edibleTile = new MapTileEdible(1);
+                return _edibleTile;
+            }
+            private set {
+                _edibleTile = value;
+            }
+        }
+        public static MapTileEdible Edible2x {
+            get {
+                if (_edibleTile == null) _edibleTile = new MapTileEdible(2);
+                return _edibleTile;
+            }
+            private set {
+                _edibleTile = value;
+            }
+        }
+        public static MapTileEdible Edible10x {
+            get {
+                if (_edibleTile == null) _edibleTile = new MapTileEdible(10);
                 return _edibleTile;
             }
             private set {
@@ -63,11 +81,22 @@ namespace Snake {
             }
         }
 
+        public static MapTileBorder Border {
+            get {
+                if (_borderTile == null) _borderTile = new MapTileBorder();
+                return _borderTile;
+            }
+            private set {
+                _borderTile = value;
+            }
+        }
+
         static MapTileEmpty _emptyTile;
         static MapTileEdible _edibleTile;
         static MapTileWine _wineTile;
         static MapTileWormKiller _killerTile;
         static MapTileWormHead _headTile;
         static MapTileWormBody _bodyTile;
+        static MapTileBorder _borderTile;
     }
 }

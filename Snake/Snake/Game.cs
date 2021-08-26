@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Snake {
     class Game {
-        public Game() {
-            _gameMap = new GameMap();
+        public Game(int width, int height, bool drawBorders) {
+            _gameMap = new GameMap(width, height, drawBorders);
             _controller = new KeyboardController();
             _gameMap.GetWorm().SetController(_controller);
             _gameMap.PlaceAtRandomFree(MapTile.Edible);

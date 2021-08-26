@@ -16,7 +16,7 @@ namespace Snake {
 
         public void Move() {
             Direction newDirection = _playerController.GetInput();
-            _heading = newDirection == null ? _heading : newDirection;
+            if (newDirection != null && newDirection.Reverse() != _heading) _heading = newDirection;
 
             _snakeSegments.AddFirst(_snakeSegments.First().GetMoved(_heading));
 

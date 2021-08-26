@@ -6,20 +6,31 @@ using System.Threading.Tasks;
 
 namespace Snake {
     class GameMap {
-        public GameMap() {
-            _map = new Map(30, 30);
+        public GameMap(int width = 30, int height = 30, bool drawBorders = true) {
+            _map = new Map(width, height);
             _worm = new Worm();
             _rand = new Random();
+            _borders = drawBorders;
         }
 
         public void Render() {
             Console.Clear();
 
+            if (_borders) {
+                for (int i = 0; i < _map.Width + 2; ++i) MapTile.Border.GetLetter().Write();
+                Console.WriteLine();
+            }
             for (int i = 0; i < _map.Height; ++i) {
+                if (_borders) MapTile.Border.GetLetter().Write();
                 for (int j = 0; j < _map.Width; ++j) {
                     _map.GetTile(j, i).GetLetter().Write();
                 }
+                if (_borders) MapTile.Border.GetLetter().Write();
                 Console.Write("\n");
+            }
+            if (_borders) {
+                for (int i = 0; i < _map.Width + 2; ++i) MapTile.Border.GetLetter().Write();
+                Console.WriteLine();
             }
         }
 
@@ -48,5 +59,6 @@ namespace Snake {
         Map _map;
         Worm _worm;
         Random _rand;
+        bool _borders;
     }
 }
