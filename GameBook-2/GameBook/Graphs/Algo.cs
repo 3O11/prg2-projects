@@ -30,6 +30,39 @@ namespace GameBook.Graphs {
             }
         }
 
+        static class RandomDFS {
+            public static void Crawl(Node startNode, IVisitor visitor) {
+                Random random = new Random();
+                Stack<Node> q = new Stack<Node>();
+                HashSet<Node> vis = new HashSet<Node>();
+                visitor.Start();
+
+                q.Push(startNode);
+                vis.Add(startNode);
+                visitor.Visit(startNode, null);
+
+                while (q.Count > 0) {
+                    Node current = q.Pop();
+
+                    HashSet<int> notVisited = new HashSet<int>();
+                    for (int i = 0; i < current.Links.Count; ++i) notVisited.Add(i);
+                    
+                    while (notVisited.Count > 0) {
+                        int randomIndex = notVisited.ElementAt(random.Next() % notVisited.Count);
+                        notVisited.Remove(randomIndex);
+
+                        Node next = current.Links[randomIndex];
+                        if (vis.Contains(next)) continue;
+                        q.Push(next);
+                        vis.Add(next);
+                        visitor.Visit(next, current);
+                    }
+                }
+
+                visitor.End();
+            }
+        }
+
         static class BFS {
             public static void Crawl(Node startNode, IVisitor visitor) {
                 Queue<Node> q = new Queue<Node>();

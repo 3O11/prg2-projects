@@ -171,7 +171,39 @@ namespace GameBook
             // 1. PERFORM BFS and DFS via VISITOR PATTERN
             Graph bookGraph = ConstructGraph(book);
             PathStoringVisitor visitor = new PathStoringVisitor();
-            Graphs.Algo.DFS.Crawl(bookGraph.Nodes[firstPage], visitor);
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Before I find the paths to the endings for you,\nplease select what kind of path you want: ");
+            Console.WriteLine("    1) Shortest paths(BFS)");
+            Console.WriteLine("    2) Generic paths(DFS)");
+            Console.WriteLine("    3) Randomized paths(Randomized DFS)");
+            Console.Write("\nPick the number of the option you would like to select: ");
+            bool correct = false;
+            while (!correct) {
+                int input;
+                string rawInput = Console.ReadLine();
+                while (!int.TryParse(rawInput, out input)) {
+                    Console.Write("Invalid input, please try again: ");
+                    rawInput = Console.ReadLine();
+                }
+                switch (input) {
+                    case 1:
+                        Graphs.Algo.BFS.Crawl(bookGraph.Nodes[firstPage], visitor);
+                        correct = true;
+                        break;
+                    case 2:
+                        Graphs.Algo.DFS.Crawl(bookGraph.Nodes[firstPage], visitor);
+                        correct = true;
+                        break;
+                    case 3:
+                        Graphs.Algo.RandomDFS.Crawl(bookGraph.Nodes[firstPage], visitor);
+                        correct = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option, please select again.");
+                        break;
+                }
+            }
 
             // 2. PRESENT PLAYOUTS AND LET PLAYER CHOOSE
             List<int> endingPageNums = new List<int>();
