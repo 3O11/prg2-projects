@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ThemeHospital.Graphs {
+namespace ThemeHospital {
     class Path {
-        public Path() {
-            _links = new List<Link>();
+        public Path(List<Link> links) {
+            _links = links;
         }
 
         public List<Link> GetLinks() {

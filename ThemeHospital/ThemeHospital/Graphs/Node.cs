@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ThemeHospital.Graphs {
+namespace ThemeHospital {
     class Node {
         public Node(int id, NodeType type) {
             _links = new List<Link>();
@@ -28,6 +28,10 @@ namespace ThemeHospital.Graphs {
             Link newLink = new Link(this, to, cost);
             _links.Add(newLink);
             return newLink;
+        }
+
+        public override string ToString() {
+            return _type.ToString() + "-" + _id;
         }
 
         List<Link> _links;

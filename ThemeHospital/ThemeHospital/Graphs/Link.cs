@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ThemeHospital.Graphs {
+namespace ThemeHospital {
     class Link {
         public Link(Node from, Node to, int cost) {
             _from = from;
