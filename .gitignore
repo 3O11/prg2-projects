@@ -23,3 +23,7 @@ Hamurabi/Hamurabi/obj
 # Ignore ThemeHospital build
 ThemeHospital/ThemeHospital/bin
 ThemeHospital/ThemeHospital/obj
+
+# Ignore Sierpinski build
+Sierpinsky/Sierpinsky/bin
+Sierpinsky/Sierpinsky/obj
