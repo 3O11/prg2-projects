@@ -27,3 +27,11 @@ ThemeHospital/ThemeHospital/obj
 # Ignore Sierpinski build
 Sierpinsky/Sierpinsky/bin
 Sierpinsky/Sierpinsky/obj
+
+# Ignore RaycastingEngine build
+RaycastingEngine/RaycastingEngine/bin
+RaycastingEngine/RaycastingEngine/obj
+
+# Ignore HeapLibrary build
+HeapLibrary/HeapLibrary/bin
+HeapLibrary/HeapLibrary/obj
