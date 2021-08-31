@@ -35,3 +35,6 @@ RaycastingEngine/RaycastingEngine/obj
 # Ignore HeapLibrary build
 HeapLibrary/HeapLibrary/bin
 HeapLibrary/HeapLibrary/obj
+HeapLibrary/TestResults
+HeapLibrary/HeapLibraryTest/bin
+HeapLibrary/HeapLibraryTest/obj

@@ -113,19 +113,31 @@ namespace HeapLibrary
 
         private void MoveDown(int index)
         {
-            if (index >= heap.Count()) return;
+            // This is not necessary, Pop() will never overflow and ChangeCost() never calls this method out of bounds.
+            //if (index >= heap.Count()) return;
+
             HeapItem<T> i1 = heap[index];
 
-            HeapItem<T> i2 = (index * 2 < heap.Count() ? heap[index * 2] : null);
-            HeapItem<T> i3 = (index * 2 + 1 < heap.Count() ? heap[index * 2 + 1] : null);
+            HeapItem<T> i2 = (index * 2 + 1 < heap.Count() ? heap[index * 2 + 1] : null);
+            HeapItem<T> i3 = (index * 2 + 2 < heap.Count() ? heap[index * 2 + 2] : null);
 
-            if (i2 == null)
+            if (i2 == null && i3 == null) return;
+
+            // This can't actually happen, because if it could, a Heap axiom would be violated.
+            //if (i2 == null)
+            //{
+            //    if (i1.cost > i3.cost)
+            //    {
+            //        heap[index] = i2;
+            //        heap[index * 2 + 1] = i1;
+            //        MoveDown(index * 2 + 1);
+            //    }
+            //    return;
+            //}
+
+            if (i3 == null)
             {
-                if (i3 == null)
-                {
-                    return;
-                }
-                if (i1.cost > i3.cost)
+                if (i1.cost > i2.cost)
                 {
                     heap[index] = i2;
                     heap[index * 2 + 1] = i1;
@@ -134,18 +146,9 @@ namespace HeapLibrary
                 return;
             }
 
-            if (i3 == null)
-            {
-                if (i1.cost > i2.cost)
-                {
-                    heap[index] = i2;
-                    heap[index * 2] = i3;
-                    MoveDown(index * 2);
-                }
-                return;
-            }
-
-            if (i1.cost <= i2.cost && i1.cost <= i2.cost)
+            // It seems like this isn't necessary for some reason.
+            // I'm not sure why, though.
+            if (i1.cost <= i2.cost && i1.cost <= i3.cost)
             {
                 return;
             }
@@ -153,14 +156,14 @@ namespace HeapLibrary
             if (i2.cost > i3.cost)
             {
                 heap[index] = i3;
-                heap[index * 2 + 1] = i1;
-                MoveDown(index * 2 + 1);
+                heap[index * 2 + 2] = i1;
+                MoveDown(index * 2 + 2);
             }
             else
             {
                 heap[index] = i2;
                 heap[index * 2 + 1] = i1;
-                MoveDown(index * 2);
+                MoveDown(index * 2 + 1);
             }
 
         }
