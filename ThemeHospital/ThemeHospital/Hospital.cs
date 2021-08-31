@@ -19,24 +19,18 @@ namespace ThemeHospital {
         }
 
         void healPatient(Patient patient, Node entrance) {
-            Console.WriteLine("==================================================================================");
-            Console.WriteLine("Now processing " + patient.GetName() + ", with a " + patient.GetProblem().ToString() + " health problem.");
+            Console.Write(patient.GetName() + ":");
 
-            Node patientLoc = entrance;
-            patientLoc = treatmentStep(patient, patientLoc, NodeType.INFODESK);
-            patientLoc = treatmentStep(patient, patientLoc, NodeType.GP);
-            patientLoc = treatmentStep(patient, patientLoc, pickDiagnostic(patient.GetProblem()));
-            patientLoc = treatmentStep(patient, patientLoc, NodeType.GP);
-            patientLoc = treatmentStep(patient, patientLoc, NodeType.TREATMENT);
-            patientLoc = treatmentStep(patient, patientLoc, NodeType.ENTRANCE);
-        }
+            Path patientPath;
+            patientPath = _layout.GetPath(entrance, NodeType.INFODESK);
+            patientPath.AddLinks(_layout.GetPath(patientPath.GetEnd(), NodeType.GP).GetLinks());
+            patientPath.AddLinks(_layout.GetPath(patientPath.GetEnd(), pickDiagnostic(patient.GetProblem())).GetLinks());
+            patientPath.AddLinks(_layout.GetPath(patientPath.GetEnd(), NodeType.GP).GetLinks());
+            patientPath.AddLinks(_layout.GetPath(patientPath.GetEnd(), NodeType.TREATMENT).GetLinks());
+            patientPath.AddLinks(_layout.GetPath(patientPath.GetEnd(), NodeType.ENTRANCE).GetLinks());
 
-        Node treatmentStep(Patient patient, Node start, NodeType end) {
-            Console.WriteLine("Now leading the patient to the nearest " + end.ToString() + ".");
-            var path = _layout.GetPath(start, end);
-            Console.WriteLine("Path cost: " + path.GetCost(patient.GetSpeedMultiplier()));
-            printPath(path);
-            return path.GetLinks().Last().GetTo();
+            Console.Write(patientPath.GetCost(patient.GetSpeedMultiplier()) + ":");
+            Console.WriteLine(patientPath.ToString());
         }
 
         NodeType pickDiagnostic(HealthProblem problem) {
@@ -54,12 +48,6 @@ namespace ThemeHospital {
                     // even though this case should not be able to happen.
                     return NodeType.ENTRANCE;
             }
-        }
-
-        void printPath(Path path) {
-            Console.Write("Path taken: ");
-            foreach (var link in path.GetLinks()) Console.Write(link.GetFrom().ToString() + " -> ");
-            Console.WriteLine(path.GetLinks().Last().GetTo().ToString());
         }
 
         Patients _patients;
