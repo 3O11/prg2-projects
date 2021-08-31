@@ -42,3 +42,7 @@ HeapLibrary/HeapLibraryTest/obj
 # Ignore TicTacRow build
 TicTacRow/TicTacRow/bin
 TicTacRow/TicTacRow/obj
+
+# Ignore DynamicProgramming build
+DynamicProgramming/DynamicProgramming/bin
+DynamicProgramming/DynamicProgramming/obj
