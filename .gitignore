@@ -38,3 +38,7 @@ HeapLibrary/HeapLibrary/obj
 HeapLibrary/TestResults
 HeapLibrary/HeapLibraryTest/bin
 HeapLibrary/HeapLibraryTest/obj
+
+# Ignore TicTacRow build
+TicTacRow/TicTacRow/bin
+TicTacRow/TicTacRow/obj
