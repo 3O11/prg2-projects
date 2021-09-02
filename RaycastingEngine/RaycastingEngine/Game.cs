@@ -69,8 +69,8 @@ namespace RaycastingEngine {
                 rayDirection.Rotate(currentAngle);
 
                 double distance = _map.CastRay(_player.Position, rayDirection);
-                //distance *= Math.Cos(Vec2.Angle(rayDirection, _player.Direction)); // Fish eye correction
-                //distance /= Math.Sqrt(width * width + height * height); // Converting the distance into [0,1] interval for easier use
+                distance = distance * Math.Cos(Vec2.Angle(rayDirection, _player.Direction)); // Fish eye correction
+                distance = distance / Math.Sqrt(width * width + height * height); // Converting the distance into [0,1] interval for easier use
 
                 double wallLength = (int)(height * (1 - distance));
 

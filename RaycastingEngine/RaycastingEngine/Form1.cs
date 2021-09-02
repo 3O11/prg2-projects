@@ -15,9 +15,10 @@ namespace RaycastingEngine {
             InitializeComponent();
 
             Init();
+            Update();
 
             _timer = new System.Timers.Timer(1000/60);
-            _timer.Elapsed += Update;
+            //_timer.Elapsed += Update;
             _timer.AutoReset = true;
             _timer.Enabled = true;
         }
@@ -26,7 +27,7 @@ namespace RaycastingEngine {
             _game = Game.Load("test.txt");
         }
 
-        private void Update(object sender, ElapsedEventArgs e) {
+        private void Update(object sender, EventArgs e) {
             _game.Update();
 
             using (Graphics g = this.CreateGraphics()) {
@@ -35,11 +36,10 @@ namespace RaycastingEngine {
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e) {
-
+            Update(sender, e);
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e) {
-            
         }
 
         System.Timers.Timer _timer;
