@@ -52,6 +52,8 @@ namespace DynamicProgramming {
         public static string Diff(string before, string after) {
             string diff = "";
 
+            // This line is ugly and might cause some speed issues with larger strings,
+            // but I wanted to make the actual LCS func more versatile, not just for strings.
             string lcs = string.Join("", Array.ConvertAll(LongestCommonSubsequence(Array.ConvertAll(before.ToCharArray(), c => (int)c), Array.ConvertAll(after.ToCharArray(), c => (int)c)), i => (char)i));
             Console.WriteLine(lcs);
 
